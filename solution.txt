@@ -1,0 +1,7 @@
+FROM node:16
+RUN npm install -g yarn
+RUN yarn install
+RUN yarn build
+
+FROM nginx:alpine 
+COPY ./build /usr/share/nginx/html/
